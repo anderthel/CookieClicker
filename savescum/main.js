@@ -5,11 +5,11 @@ Game.registerMod("savescum", { //this string needs to match the ID provided in y
         let MOD = this;
 
         //Add in save button
-        l('storeTitle').insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="savescumbutton">Save</a>');
+        l('storeTitle').insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="savescumbutton">SaveScum</a>');
 
         //Click detector
         AddEvent(l('savescumbutton'), 'click', function() {
-            if (event.key == "shift") {
+            if (Game.keys[16]) {
                 Game.ImportSaveCode(MOD.savescum);
                 Game.CloseNotes();
                 Game.Notify('Loaded', '', [], 1);
