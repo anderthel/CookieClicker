@@ -107,7 +107,6 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
                         MOD.strongestbuild = building.id
                     }
                 })
-                Game.buffsI || Game.buffs
                 if (Game.buffsI > 1 && Game.cookies > Game.ObjectsById[MOD.strongestbuild].price) {
                     Game.ObjectsById[MOD.strongestbuild].sell(1);
                     Game.ObjectsById[MOD.strongestbuild].buy(1);
