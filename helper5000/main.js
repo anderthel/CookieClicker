@@ -20,26 +20,27 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
                         building.sell(99999);
                     }
                 })
-            }),
-            /*Save Scum*/
-            AddEvent(l('savescumbutton'), 'click', function() {
-                if (Game.keys[16] == 1) {
-                    Game.ImportSaveCode(MOD.savescum);
-                    Game.CloseNotes();
-                    Game.Notify('Loaded', '', [], 1);
-                } else {
-                    MOD.savescum = Game.WriteSave(1);
-                    Game.Notify('Saved', '', [], 1);
-                }
-            }),
-
-            function savescumbuttontext() { /*Change text on button if shift held*/
-                if (Game.keys[16] == 1) {
-                    l('savescumbutton').innerText = "Load";
-                } else {
-                    l('savescumbutton').innerText = "Save";
-                }
+            })
+        
+        /*Save Scum*/
+        AddEvent(l('savescumbutton'), 'click', function() {
+            if (Game.keys[16] == 1) {
+                Game.ImportSaveCode(MOD.savescum);
+                Game.CloseNotes();
+                Game.Notify('Loaded', '', [], 1);
+            } else {
+                MOD.savescum = Game.WriteSave(1);
+                Game.Notify('Saved', '', [], 1);
             }
+        })
+
+        function savescumbuttontext() { /*Change text on button if shift held*/
+            if (Game.keys[16] == 1) {
+                l('savescumbutton').innerText = "Load";
+            } else {
+                l('savescumbutton').innerText = "Save";
+            }
+        }
 
 
         // For shimmers
@@ -140,10 +141,10 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
         MOD.keepfree = true; /*Keep free buildings*/
 
         // Triggers
-        Game.registerHook("draw", autoshimmers);            /*Auto Shimmers*/
-        Game.registerHook("check", autowrinklers);          /*Auto Wrinklers*/
-        Game.registerHook("draw", savescumbuttontext);              /*Save Scum Button Text*/
-        Game.registerHook("draw", autocast);                /*Auto Cast*/
+        Game.registerHook("draw", autoshimmers); /*Auto Shimmers*/
+        Game.registerHook("check", autowrinklers); /*Auto Wrinklers*/
+        Game.registerHook("draw", savescumbuttontext); /*Save Scum Button Text*/
+        Game.registerHook("draw", autocast); /*Auto Cast*/
         // Game.registerHook("check",autofortune);         /*Auto fortune clicker*/
         // Game.registerHook("draw",autodragonorb);        /*Auto dragon orb aura*/
         // Game.registerHook("check",autofortune);         /*Auto spirit of ruin pantheon*/
