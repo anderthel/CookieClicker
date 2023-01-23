@@ -72,8 +72,8 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
                 }
 
                 // pop biggest if count full
-                if (wrinkCount == Game.wrinklers.length && wrinkIndex != Game.wrinklers.length) {
-                    Game.wrinklers[wrinkIndex].hp = 0;
+                if (MOD.wrinkCount == Game.wrinklers.length && MOD.wrinkIndex != Game.wrinklers.length) {
+                    Game.wrinklers[MOD.wrinkIndex].hp = 0;
                 }
             })
         }
@@ -141,10 +141,8 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
         MOD.keepfree = true; /*Keep free buildings*/
 
         // Triggers
-        Game.registerHook("draw", autoshimmers);            /*Auto Shimmers*/
-        Game.registerHook("check", autowrinklers);          /*Auto Wrinklers*/
-        Game.registerHook("draw", buttontext);              /*Save Scum Button Text*/
-        Game.registerHook("draw", autocast);                /*Auto Cast*/
+        Game.registerHook("draw", [autoshimmers, buttontext, autocast]);
+        Game.registerHook("check", autowrinklers);
         // Game.registerHook("check",autofortune);         /*Auto fortune clicker*/
         // Game.registerHook("draw",autodragonorb);        /*Auto dragon orb aura*/
         // Game.registerHook("check",autofortune);         /*Auto spirit of ruin pantheon*/
