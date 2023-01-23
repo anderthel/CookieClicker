@@ -81,6 +81,7 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
 
         // Spell casting
         function autocast() {
+            MOD.wiz = Game.ObjectsById[7].minigame;
             if (MOD.wiz.magic == MOD.wiz.magicM) {
                 MOD.wiz.castSpell(MOD.wiz.spells[MOD.spell]);
                 if (MOD.spell == "hand of fate") {
