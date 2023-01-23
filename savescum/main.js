@@ -31,7 +31,7 @@ Game.registerMod("savescum", { //this string needs to match the ID provided in y
         Game.registerHook("draw",buttontext)
 
         //note: this mod does nothing but show a notification at the bottom of the screen once it's loaded
-        Game.Notify("Save Scum Loaded", '', [16, 5]);
+        Game.Notify("Save Scum Loaded", '', [16, 5], 5);
     },
     save: function() {
         //use this to store persistent data associated with your mod
