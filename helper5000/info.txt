@@ -1,0 +1,12 @@
+{
+	"Name": "Helper 5000",
+	"ID": "helper5000",
+	"Author": "Anderthel",
+	"Description": "A simple mod that has various helpers",
+	"ModVersion": 1,
+	"GameVersion": 2.048,
+	"Date": "22/01/2023",
+	"Dependencies": [],
+	"Disabled": 1,
+	"AllowSteamAchievs": 1
+}
