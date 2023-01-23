@@ -9,7 +9,7 @@ Game.registerMod("savescum", { //this string needs to match the ID provided in y
 
         //Click detector
         AddEvent(l('savescumbutton'), 'click', function() {
-            if (Game.keys[16]) {
+            if (Game.keys[16] == 1) {
                 Game.ImportSaveCode(MOD.savescum);
                 Game.CloseNotes();
                 Game.Notify('Loaded', '', [], 1);
@@ -24,10 +24,10 @@ Game.registerMod("savescum", { //this string needs to match the ID provided in y
     },
     save: function() {
         //use this to store persistent data associated with your mod
-        return String(this.savescum);
+        // return String(this.savescum);
     },
     load: function(str) {
         //do stuff with the string data you saved previously
-        this.savescum = str;
+        // this.savescum = str;
     },
 });
