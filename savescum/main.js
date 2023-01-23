@@ -5,7 +5,7 @@ Game.registerMod("savescum", { //this string needs to match the ID provided in y
         let MOD = this;
 
         //Add in save button
-        l('storeTitle').insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="savescumbutton">SaveScum</a>');
+        l('storeTitle').insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="savescumbutton">Save</a>');
 
         //Click detector
         AddEvent(l('savescumbutton'), 'click', function() {
@@ -18,6 +18,17 @@ Game.registerMod("savescum", { //this string needs to match the ID provided in y
                 Game.Notify('Saved', '', [], 1);
             }
         });
+
+        function buttontext() {
+            if (Game.keys[16] == 1) {
+                l('savescumbutton').innerText = "Load";
+            } else {
+                l('savescumbutton').innerText = "Save";
+            }
+        }
+
+        // Add shift hook
+        Game.registerHook("draw",buttontext)
 
         //note: this mod does nothing but show a notification at the bottom of the screen once it's loaded
         Game.Notify("Save Scum Loaded", '', [16, 5]);
