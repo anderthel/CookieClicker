@@ -1,0 +1,12 @@
+{
+	"Name": "Lump Name",
+	"ID": "lumpname",
+	"Author": "Anderthel",
+	"Description": "A simple mod that displays the lump type on load",
+	"ModVersion": 1,
+	"GameVersion": 2.048,
+	"Date": "22/01/2023",
+	"Dependencies": [],
+	"Disabled": 1,
+	"AllowSteamAchievs": 1
+}
