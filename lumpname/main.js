@@ -20,7 +20,7 @@ Game.registerMod("lumpname", { //this string needs to match the ID provided in y
             return name;
         }
 
-        Game.Notify(MOD.getLumpName, '', [], 5);
+        Game.Notify(MOD.getLumpName(), '', [], 5);
 
     },
     //save: function() {
