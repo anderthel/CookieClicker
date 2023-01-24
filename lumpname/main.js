@@ -4,31 +4,21 @@ Game.registerMod("lumpname", { //this string needs to match the ID provided in y
         //this function is called as soon as the mod is registered
         let MOD = this;
 
-        MOD.getLumpName = function(){
-            var name = "";
-            if(Game.lumpCurrentType == 0) {// Normal
-                name = "Normal";
-            } else if(Game.lumpCurrentType == 1) {// Bifurcated
-                name = "Bifurcated";
-            } else if(Game.lumpCurrentType == 2) {// Golden
-                name = "Golden";
-            } else if(Game.lumpCurrentType == 3) {// Meaty
-                name = "Meaty";
-            } else if(Game.lumpCurrentType == 4) {// Caramelized
-                name = "Caramelized";
-            }
-            return name;
+        if (Game.lumpCurrentType == 0) {
+            // Normal
+            Game.Notify("Normal", '', [29, 14], 5);
+        } else if (Game.lumpCurrentType == 1) {
+            // Bifurcated
+            Game.Notify("Bifurcated", '', [29, 15], 5);
+        } else if (Game.lumpCurrentType == 2) {
+            // Golden
+            Game.Notify("Golden", '', [29, 16], 5);
+        } else if (Game.lumpCurrentType == 3) {
+            // Meaty
+            Game.Notify("Meaty", '', [29, 17], 5);
+        } else if (Game.lumpCurrentType == 4) {
+            // Caramelized
+            Game.Notify("Caramelized", '', [29, 27], 5);
         }
-
-        Game.Notify(MOD.getLumpName(), '', [], 5);
-
-    },
-    //save: function() {
-        //use this to store persistent data associated with your mod
-        // return String(this.savescum);
-    //},
-    //load: function(str) {
-        //do stuff with the string data you saved previously
-        // this.savescum = str;
-    //},
+    }
 });
