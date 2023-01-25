@@ -4,6 +4,7 @@ Game.registerMod("lumpname", { //this string needs to match the ID provided in y
         //this function is called as soon as the mod is registered
         let MOD = this;
 
+    setInterval(function() {
         if (Game.lumpCurrentType == 0) {
             // Normal
             Game.Notify("Normal", '', [29, 14], 5);
@@ -20,5 +21,6 @@ Game.registerMod("lumpname", { //this string needs to match the ID provided in y
             // Caramelized
             Game.Notify("Caramelized", '', [29, 27], 5);
         }
+    }, 5000);
     }
 });
