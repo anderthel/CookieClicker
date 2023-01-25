@@ -1,9 +1,9 @@
 # Mods:
 ## Save Scum
-[link](savescum/main.js)
+[link](https://jn8416.github.io/CookieClicker/savescum/main.js)
 
 ## Helper5000
-[link](helper5000/main.js)
+[link](https://jn8416.github.io/CookieClicker/helper5000/main.js)
 
 ## Lump Name
-[link](lumpname/main.js)
+[link](https://jn8416.github.io/CookieClicker/lumpname/main.js)
