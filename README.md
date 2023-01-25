@@ -1,12 +1,33 @@
 # Mods:
-## Save Scum
-[link](https://jn8416.github.io/CookieClicker/savescum/main.js)
-
 ## Helper5000
 [link](https://jn8416.github.io/CookieClicker/helper5000/main.js)
+
+## Auto Cast
+[link](https://jn8416.github.io/CookieClicker/autocast/main.js)
+
+## Auto Fortune
+[link](https://jn8416.github.io/CookieClicker/autofortune/main.js)
+
+## Auto Shimmers
+[link](https://jn8416.github.io/CookieClicker/autoshimmers/main.js)
+
+## Auto Wrinkler
+[link](https://jn8416.github.io/CookieClicker/autowrinker/main.js)
 
 ## Lump Name
 [link](https://jn8416.github.io/CookieClicker/lumpname/main.js)
 
-## Lump Save Skummer
+## Lump Scummer
 [link](https://jn8416.github.io/CookieClicker/lumpscummer/main.js)
+
+## Save Scum
+[link](https://jn8416.github.io/CookieClicker/savescum/main.js)
+
+## Sell All
+[link](https://jn8416.github.io/CookieClicker/sellall/main.js)
+
+# Install:
+## Steam:
+No idea how but in therory these should work
+## Firefox
+Use Cookie Clicker Mod Manager
