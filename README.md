@@ -26,6 +26,10 @@
 ## Sell All
 [link](https://jn8416.github.io/CookieClicker/sellall/main.js)
 
+## Stock Mode
+[link](https://jn8416.github.io/CookieClicker/stockmode/main.js)
+
+
 # Install:
 ## Steam:
 No idea how but in therory these should work
