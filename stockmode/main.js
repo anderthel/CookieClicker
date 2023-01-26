@@ -5,12 +5,12 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
         let MOD = this;
 
         // Button
-        l("bankHeader").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="stockmode">Mode: Off</a>');
+        l("bankHeader").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="stockmodebutton">Mode: Off</a>');
 
         // Button events
-        AddEvent(l('stockmode'), 'click', function() {
-                if (l('savescumbutton').innerText == "Mode: Off") {
-                    l('savescumbutton').innerText = "Mode: On";
+        AddEvent(l('stockmodebutton'), 'click', function() {
+                if (l('stockmodebutton').innerText == "Mode: Off") {
+                    l('stockmodebutton').innerText = "Mode: On";
                     MOD.printing = setInterval(function() {
                         MOD.stocks = "";
                         if (Game.ObjectsById[5].muted == 0) {
@@ -25,7 +25,7 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
                         }
                     }, 5000);
                 } else {
-                    l('savescumbutton').innerText = "Mode: Off";
+                    l('stockmodebutton').innerText = "Mode: Off";
                     clearInterval(MOD.printing);
                 }
             })
