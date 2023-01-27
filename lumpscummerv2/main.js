@@ -17,8 +17,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
         while (true) {
 
             // Click the lump (will harvest if ready)
-            Game.clickLump();
-            setTimeout(function(){}, 100);
+            setTimeout(function(){Game.clickLump();}, 100);
             MOD.tries++;
 
             if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
