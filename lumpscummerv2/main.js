@@ -12,15 +12,19 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
         // Get information
         MOD.count = Game.lumps;
         MOD.old = Game.lumpCurrentType;
+        MOD.tries = 0;
 
         while (true) {
             // Click the lump (will harvest if ready)
             Game.clickLump;
+            MOD.tries++;
 
             if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
                 Game.ImportSaveCode(MOD.save);
+                console.log("Try " + MOD.tries + " - Lumps not increased");
             } else if (MOD.old == MOD.goal && Game.lumps - MOD.addition != MOD.count) { /*If old is same as goal check correct amount gotten*/
                 Game.ImportSaveCode(MOD.save);
+                console.log("Try " + MOD.tries + " - Lumps not increased enough");
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
                 Game.toSave = true;
                 Game.Notify('Done', '', [], 6000);
@@ -28,6 +32,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 break;
             } else {
                 Game.ImportSaveCode(MOD.save);
+                console.log("Try " + MOD.tries + " - Not right type: " + Game.lumpCurrentType);
             }
         }
     }
