@@ -1,5 +1,5 @@
 {
-	"Name": "Lump Scummer",
+	"Name": "Lump Scummer V2",
 	"ID": "lumpscummerv2",
 	"Author": "Anderthel",
 	"Description": "A simple mod that will refresh the save until the desired lump type is found - default set to gold",
