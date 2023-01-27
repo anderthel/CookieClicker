@@ -9,7 +9,7 @@ Game.registerMod("lumpscummer", { //this string needs to match the ID provided i
         // Click the lump (will harvest if ready)
         MOD.count = Game.lumps;
         MOD.old = Game.lumpCurrentType;
-        Game.clickLump;
+        Game.clickLump();
 
         // If botched then reload
         if (Game.lumps == MOD.count) {
