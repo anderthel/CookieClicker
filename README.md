@@ -20,6 +20,9 @@
 ## Lump Scummer
 [link](https://jn8416.github.io/CookieClicker/lumpscummer/main.js)
 
+## Lump Scummer V2
+[link](https://jn8416.github.io/CookieClicker/lumpscummerv2/main.js)
+
 ## Save Scum
 [link](https://jn8416.github.io/CookieClicker/savescum/main.js)
 
