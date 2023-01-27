@@ -11,22 +11,19 @@ Game.registerMod("lumpscummer", { //this string needs to match the ID provided i
         MOD.old = Game.lumpCurrentType;
         Game.clickLump();
 
-        // If botched then reload
-        if (Game.lumps == MOD.count) {
+        if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
             window.location.reload();
-        }
-
-        // If old is same as goal check correct amount gotten
-        if (MOD.old == MOD.goal && Game.lumps - MOD.addition != MOD.count) {
+            console.log("Lumps not increased");
+        } else if (MOD.old == MOD.goal && Game.lumps - MOD.addition != MOD.count) { /*If old is same as goal check correct amount gotten*/
             window.location.reload();
-        }
-
-        // Check new lump type
-        if (Game.lumpCurrentType == MOD.goal) {
+            console.log("Lumps not increased enough");
+        } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
             Game.toSave = true;
-            Game.Notify('Done', '', [], 60);
+            Game.Notify('Done', '', [], 6000);
+            console.log(Game.WriteSave(1));
         } else {
             window.location.reload();
+            console.log("Not right type: " + Game.lumpCurrentType);
         }
     }
 });
