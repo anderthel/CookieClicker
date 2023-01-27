@@ -32,6 +32,9 @@
 ## Stock Mode
 [link](https://jn8416.github.io/CookieClicker/stockmode/main.js)
 
+## Auto Click
+[link](https://jn8416.github.io/CookieClicker/autoclick/main.js)
+
 
 # Install:
 ## Steam:
