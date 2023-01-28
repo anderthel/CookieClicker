@@ -29,7 +29,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
                 Game.toSave = true;
                 Game.CloseNotes();
-                console.log(Game.WriteSave(1));
+                /*console.log(Game.WriteSave(1));*/
                 Game.Notify('Done', '', [], 6000);
                 break;
             } else {
