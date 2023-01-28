@@ -48,7 +48,7 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
             }
         }
 
-        Game.registerHook("draw", autocast); /*Auto Cast*/
+        // Game.registerHook("draw", autocast); /*Auto Cast*/
         Game.Notify("Auto Cast Loaded", '', [], 5);
     },
     save: function() {
