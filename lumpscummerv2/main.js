@@ -10,8 +10,8 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
         MOD.save = Game.WriteSave(1);
 
         // Get information
-        MOD.count = Game.lumps;
-        MOD.old = Game.lumpCurrentType;
+        MOD.oldcount = Game.lumps;
+        MOD.oldtype = Game.lumpCurrentType;
         MOD.tries = 0;
 
         while (true) {
@@ -20,10 +20,10 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             MOD.tries++;
             // await new Promise(resolve => setTimeout(resolve, 100));console.log("run") // wait 100ms
 
-            if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
+            if (Game.lumps == MOD.oldcount) { /*If count hasnt increased (botched)*/
                 console.log("Try " + MOD.tries + " - Lumps not increased");
                 Game.ImportSaveCode(MOD.save);
-            } else if (MOD.old == MOD.goal && (Game.lumps - MOD.count != MOD.addition)) { /*If old is same as goal check correct amount gotten*/
+            } else if (MOD.oldtype == MOD.goal && Game.lumps - MOD.addition !== MOD.oldcount) { /*If old is same as goal check correct amount gotten*/
                 console.log("Try " + MOD.tries + " - Lumps not increased enough: " + Game.lumps);
                 Game.ImportSaveCode(MOD.save);
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
