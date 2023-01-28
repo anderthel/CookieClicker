@@ -4,7 +4,7 @@ Game.registerMod("lumpscummer", { //this string needs to match the ID provided i
         //this function is called as soon as the mod is registered
         let MOD = this;
         MOD.goal = 2; /*the id of the type you want - 0 normal, 1 bi, 2 gold, 3 meat, 4 carmel*/
-        MOD.addition = 7; /*the amount you get for that type*/
+        MOD.addition = 5; /*the amount you get for that type*/
 
         // Click the lump (will harvest if ready)
         MOD.count = Game.lumps;
@@ -14,7 +14,7 @@ Game.registerMod("lumpscummer", { //this string needs to match the ID provided i
         if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
             window.location.reload();
             console.log("Lumps not increased");
-        } else if (MOD.old == MOD.goal && Game.lumps - MOD.addition != MOD.count) { /*If old is same as goal check correct amount gotten*/
+        } else if (MOD.old == MOD.goal && MOD.count + MOD.addition <= Game.lumps) { /*If old is same as goal check correct amount gotten*/
             window.location.reload();
             console.log("Lumps not increased enough");
         } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
