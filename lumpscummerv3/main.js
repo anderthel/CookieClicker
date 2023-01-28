@@ -13,9 +13,10 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
 
     waiting: function() { /*Change text on button if shift held*/
         if (Date.now() >= Game.lumpT + Game.lumpRipeAge) {
+            MOD.run = true;
             MOD.savescum();
         } else {
-            setTimeout(MOD.run(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
+            setTimeout(MOD.waiting(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
         }
     },
 
