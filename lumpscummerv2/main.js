@@ -33,12 +33,12 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 Game.toSave = true;
                 Game.CloseNotes();
                 /*console.log(Game.WriteSave(1));*/
-                MOD.save = Game.WriteSave(1);
-                console.log(MOD.save);
+                /*MOD.save = Game.WriteSave(1);*/
+                /*console.log(MOD.save);*/
                 console.log("Done");
                 Game.Notify('Done', '', [], 6000);
                 MOD.run = false;
-                break;
+                /*break;*/
             } else {
                 console.log("Try:" + String(MOD.tries).padStart(4, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Not right type");
                 Game.ImportSaveCode(MOD.save);
