@@ -7,7 +7,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
         MOD.addition = 7; /*the amount you get for that type (must be max you can*/
 
         // Save before starting
-        MOD.save = Game.WriteSave(1);
+        MOD.oldsave = Game.WriteSave(1);
 
         // Get information
         MOD.oldcount = Game.lumps;
@@ -25,10 +25,10 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
 
             if (Game.lumps == MOD.oldcount) { /*If count hasnt increased (botched)*/
                 console.log("Try:" + String(MOD.tries).padStart(4, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Count not increased");
-                Game.ImportSaveCode(MOD.save);
+                Game.ImportSaveCode(MOD.oldsave);
             } else if (MOD.oldtype == MOD.goal && Game.lumps - MOD.addition !== MOD.oldcount) { /*If old is same as goal check correct amount gotten*/
                 console.log("Try:" + String(MOD.tries).padStart(4, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Lumps not increased enough");
-                Game.ImportSaveCode(MOD.save);
+                Game.ImportSaveCode(MOD.oldsave);
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
                 Game.toSave = true;
                 Game.CloseNotes();
@@ -41,7 +41,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 /*break;*/
             } else {
                 console.log("Try:" + String(MOD.tries).padStart(4, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Not right type");
-                Game.ImportSaveCode(MOD.save);
+                Game.ImportSaveCode(MOD.oldsave);
             }
         }
     },
