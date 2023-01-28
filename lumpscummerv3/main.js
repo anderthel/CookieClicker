@@ -12,6 +12,11 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
 
     },
 
+    recaller: function() {
+        let MOD = this;
+        MOD.waiting();
+    }
+
     waiting: function() {
         let MOD = this;
         
@@ -19,7 +24,7 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
             MOD.run = true;
             MOD.savescum();
         } else {
-            setTimeout(MOD.waiting(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
+            setTimeout(MOD.recaller(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
         }
     },
 
