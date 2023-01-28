@@ -13,19 +13,17 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
     },
 
     waiting: function() {
-        let MOD = this;
-        
-        if (Date.now() >= Game.lumpT + Game.lumpRipeAge) {
-            MOD.run = true;
-            MOD.savescum();
-        } else {
-            timeout = setTimeout(this.waiting(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
+        function waiting_logic() {
+            if (Date.now() >= Game.lumpT + Game.lumpRipeAge) {
+                MOD.run = true;
+                MOD.savescum();
+            } else {
+                setTimeout(MOD.waiting_logic(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
+            }
         }
     },
 
     savescum: function() {
-        let MOD = this;
-
         // Save before starting
         MOD.oldsave = Game.WriteSave(1);
 
