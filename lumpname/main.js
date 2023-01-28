@@ -22,5 +22,12 @@ Game.registerMod("lumpname", { //this string needs to match the ID provided in y
                 Game.Notify("Caramelized", '', [29, 27], 5);
             }
         }, 5000);
-    }
+    },
+    save:function(){
+        //use this to store persistent data associated with your mod
+        //note: as your mod gets more complex, you should consider storing a stringified JSON instead
+    },
+    load:function(str){
+        //do stuff with the string data you saved previously
+    },
 });

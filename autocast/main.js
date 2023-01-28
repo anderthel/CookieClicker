@@ -14,11 +14,11 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
             MOD.wiz = Game.ObjectsById[7].minigame;
             if (MOD.wiz.magic == MOD.wiz.magicM) {                                      /*if magic is full*/
                 if (MOD.bufftoggle == true) {                                           /*if toggle on do tests*/
-                    MOD.buffcount = 0;
+                    MOD.buffcount = 1;
                     for (key in Game.buffs) {                                           /*count buffs*/
                         MOD.buffcount++
                     };
-                    if (MOD.buffcount >= 2) {                                           /*if at least 1 buff then cast*/
+                    if (MOD.buffcount >= 1) {                                           /*if at least 1 buff then cast*/
                         MOD.wiz.castSpell(MOD.wiz.spells[MOD.spell]);
                     }
                 } else {
@@ -36,5 +36,12 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
 
         Game.registerHook("draw", autocast); /*Auto Cast*/
         Game.Notify("Auto Cast Loaded", '', [], 5);
-    }
+    },
+    save:function(){
+        //use this to store persistent data associated with your mod
+        //note: as your mod gets more complex, you should consider storing a stringified JSON instead
+    },
+    load:function(str){
+        //do stuff with the string data you saved previously
+    },
 });

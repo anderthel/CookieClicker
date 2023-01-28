@@ -4,6 +4,11 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
         //this function is called as soon as the mod is registered
         let MOD = this;
 
+        // Addon achivement
+        if (Game.AchievementsById[160].won == 0) {
+            Game.AchievementsById[160].toggle()
+        }
+
         // Add buttons
         /*Sell All*/
         l('storeBulk').insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="sellall">Sell All</a>');
@@ -132,6 +137,11 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
         // wrath cookies
         // Big cookie clicker
         // SpirtofRuin
+        // Click to remove possitive efftcts?
+        // Lump type Game.lumpCurrentType Game.lumpToolTip()
+
+        // Trigger save scum saver
+        MOD.savescum = Game.WriteSave(1);
 
         // Selector
         MOD.spell = "hand of fate";
@@ -153,5 +163,12 @@ Game.registerMod("helper5000", { //this string needs to match the ID provided in
 
         //note: this mod does nothing but show a notification at the bottom of the screen once it's loaded
         Game.Notify("Helper 5000", '', [16, 5], 5);
-    }
+    },
+    save:function(){
+        //use this to store persistent data associated with your mod
+        //note: as your mod gets more complex, you should consider storing a stringified JSON instead
+    },
+    load:function(str){
+        //do stuff with the string data you saved previously
+    },
 });

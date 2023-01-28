@@ -41,5 +41,12 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
 
         // Loaded
         Game.Notify("Stock Mode Loaded", '', [], 5);
-    }
+    },
+    save:function(){
+        //use this to store persistent data associated with your mod
+        //note: as your mod gets more complex, you should consider storing a stringified JSON instead
+    },
+    load:function(str){
+        //do stuff with the string data you saved previously
+    },
 });
