@@ -19,7 +19,7 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
             MOD.run = true;
             MOD.savescum();
         } else {
-            timeout = setTimeout(waiting(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
+            timeout = setTimeout(this.waiting(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
         }
     },
 
