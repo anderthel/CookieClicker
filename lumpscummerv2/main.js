@@ -18,7 +18,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             // Click the lump (will harvest if ready)
             Game.clickLump();
             MOD.tries++;
-            await new Promise(resolve => setTimeout(resolve, 10));console.log("run") // wait 100ms
+            // await new Promise(resolve => setTimeout(resolve, 100));console.log("run") // wait 100ms
 
             if (Game.lumps == MOD.oldcount) { /*If count hasnt increased (botched)*/
                 console.log("Try " + MOD.tries + " - Lumps not increased");
