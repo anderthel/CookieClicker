@@ -4,7 +4,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
         //this function is called as soon as the mod is registered
         let MOD = this;
         MOD.goal = 2; /*the id of the type you want - 0 normal, 1 bi, 2 gold, 3 meat, 4 carmel*/
-        MOD.addition = 7; /*the amount you get for that type*/
+        MOD.addition = 7; /*the amount you get for that type (must be max you can*/
 
         // Save before starting
         MOD.save = Game.WriteSave(1);
@@ -23,7 +23,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
                 console.log("Try " + MOD.tries + " - Lumps not increased");
                 Game.ImportSaveCode(MOD.save);
-            } else if (MOD.old == MOD.goal && !(Game.lumps - MOD.count <= MOD.addition)) { /*If old is same as goal check correct amount gotten*/
+            } else if (MOD.old == MOD.goal && (Game.lumps - MOD.count != MOD.addition)) { /*If old is same as goal check correct amount gotten*/
                 console.log("Try " + MOD.tries + " - Lumps not increased enough: " + Game.lumps);
                 Game.ImportSaveCode(MOD.save);
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
