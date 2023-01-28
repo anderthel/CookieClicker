@@ -12,6 +12,8 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
     },
 
     waiting: function() { /*Change text on button if shift held*/
+        let MOD = this;
+        
         if (Date.now() >= Game.lumpT + Game.lumpRipeAge) {
             MOD.run = true;
             MOD.savescum();
@@ -21,6 +23,8 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
     },
 
     savescum: function() {
+        let MOD = this;
+
         // Save before starting
         MOD.oldsave = Game.WriteSave(1);
 
