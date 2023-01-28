@@ -7,12 +7,8 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
         MOD.addition = 7; /*the amount you get for that type (must be max you can*/
 
         // First trigger
-        MOD.waiting();
-        console.log((Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
+        MOD.waiting_logic();
 
-    },
-
-    waiting: function() {
         function waiting_logic() {
             if (Date.now() >= Game.lumpT + Game.lumpRipeAge) {
                 MOD.run = true;
@@ -21,46 +17,46 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
                 setTimeout(MOD.waiting_logic(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
             }
         }
-    },
 
-    savescum: function() {
-        // Save before starting
-        MOD.oldsave = Game.WriteSave(1);
+        function savescum() {
+            // Save before starting
+            MOD.oldsave = Game.WriteSave(1);
 
-        // Get information
-        MOD.oldcount = Game.lumps;
-        MOD.oldtype = Game.lumpCurrentType;
-        MOD.tries = 0;
+            // Get information
+            MOD.oldcount = Game.lumps;
+            MOD.oldtype = Game.lumpCurrentType;
+            MOD.tries = 0;
 
-        // Main logic
-        while (MOD.run) {
-            // Click the lump (will harvest if ready)
-            Game.clickLump();
-            MOD.tries++;
+            // Main logic
+            while (MOD.run) {
+                // Click the lump (will harvest if ready)
+                Game.clickLump();
+                MOD.tries++;
 
-            if (Game.lumps == MOD.oldcount) { /*If count hasnt increased (botched)*/
-                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Count not increased");
-                Game.ImportSaveCode(MOD.oldsave);
-            } else if (MOD.oldtype == MOD.goal && Game.lumps - MOD.addition !== MOD.oldcount) { /*If old is same as goal check correct amount gotten*/
-                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Lumps not increased enough");
-                Game.ImportSaveCode(MOD.oldsave);
-            } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
-                Game.toSave = true;
-                Game.CloseNotes();
-                console.log(Game.WriteSave(1));
-                /*MOD.save = Game.WriteSave(1);*/
-                /*console.log(MOD.save);*/
-                console.log("Done");
-                Game.Notify('Done', '', [], 6000);
-                MOD.run = false;
-                /*break;*/
-            } else {
-                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Not right type");
-                Game.ImportSaveCode(MOD.oldsave);
+                if (Game.lumps == MOD.oldcount) { /*If count hasnt increased (botched)*/
+                    console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Count not increased");
+                    Game.ImportSaveCode(MOD.oldsave);
+                } else if (MOD.oldtype == MOD.goal && Game.lumps - MOD.addition !== MOD.oldcount) { /*If old is same as goal check correct amount gotten*/
+                    console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Lumps not increased enough");
+                    Game.ImportSaveCode(MOD.oldsave);
+                } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
+                    Game.toSave = true;
+                    Game.CloseNotes();
+                    console.log(Game.WriteSave(1));
+                    /*MOD.save = Game.WriteSave(1);*/
+                    /*console.log(MOD.save);*/
+                    console.log("Done");
+                    Game.Notify('Done', '', [], 6000);
+                    MOD.run = false;
+                    /*break;*/
+                } else {
+                    console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Not right type");
+                    Game.ImportSaveCode(MOD.oldsave);
+                }
             }
-        }
 
-        // Runs once while is done
-        MOD.waiting();
+            // Runs once while is done
+            MOD.waiting();
+        }
     }
 });
