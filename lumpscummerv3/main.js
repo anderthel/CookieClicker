@@ -7,14 +7,14 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
         MOD.addition = 7; /*the amount you get for that type (must be max you can*/
 
         // First trigger
-        MOD.waiting_logic();
+        waiting_logic();
 
         function waiting_logic() {
             if (Date.now() >= Game.lumpT + Game.lumpRipeAge) {
                 MOD.run = true;
                 MOD.savescum();
             } else {
-                setTimeout(MOD.waiting_logic(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
+                setTimeout(waiting_logic(), (Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
             }
         }
 
@@ -56,7 +56,7 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
             }
 
             // Runs once while is done
-            MOD.waiting();
+            waiting_logic();
         }
     }
 });
