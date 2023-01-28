@@ -24,10 +24,10 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             // await new Promise(resolve => setTimeout(resolve, 100));console.log("run") // wait 100ms
 
             if (Game.lumps == MOD.oldcount) { /*If count hasnt increased (botched)*/
-                console.log("Try:" + String(MOD.tries).padStart(4, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Count not increased");
+                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Count not increased");
                 Game.ImportSaveCode(MOD.oldsave);
             } else if (MOD.oldtype == MOD.goal && Game.lumps - MOD.addition !== MOD.oldcount) { /*If old is same as goal check correct amount gotten*/
-                console.log("Try:" + String(MOD.tries).padStart(4, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Lumps not increased enough");
+                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Lumps not increased enough");
                 Game.ImportSaveCode(MOD.oldsave);
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
                 Game.toSave = true;
@@ -40,7 +40,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 MOD.run = false;
                 /*break;*/
             } else {
-                console.log("Try:" + String(MOD.tries).padStart(4, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Not right type");
+                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + " | Type:" + Game.lumpCurrentType + " | Lumps:" + String(Game.lumps).padStart(2, ' ') + " | Not right type");
                 Game.ImportSaveCode(MOD.oldsave);
             }
         }
