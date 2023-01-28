@@ -15,9 +15,9 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
         MOD.tries = 0;
 
         // condition
-        MOD.done = false;
+        MOD.run = true;
 
-        while (MOD.done) {
+        while (MOD.run) {
             // Click the lump (will harvest if ready)
             Game.clickLump();
             MOD.tries++;
@@ -33,8 +33,10 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 Game.toSave = true;
                 Game.CloseNotes();
                 /*console.log(Game.WriteSave(1));*/
+                MOD.save = Game.WriteSave(1);
+                console.log(MOD.save);
                 Game.Notify('Done', '', [], 6000);
-                MOD.done = true;
+                MOD.run = false;
             } else {
                 console.log("Try " + MOD.tries + " - Not right type: " + Game.lumpCurrentType);
                 Game.ImportSaveCode(MOD.save);
