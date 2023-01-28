@@ -8,10 +8,11 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
 
         // First trigger
         MOD.waiting();
+        console.log((Game.lumpT + Game.lumpRipeAge + 1000) - Date.now());
 
     },
 
-    waiting: function() { /*Change text on button if shift held*/
+    waiting: function() {
         let MOD = this;
         
         if (Date.now() >= Game.lumpT + Game.lumpRipeAge) {
