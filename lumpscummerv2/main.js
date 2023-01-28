@@ -32,7 +32,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
                 Game.toSave = true;
                 Game.CloseNotes();
-                /*console.log(Game.WriteSave(1));*/
+                console.log(Game.WriteSave(1));
                 /*MOD.save = Game.WriteSave(1);*/
                 /*console.log(MOD.save);*/
                 console.log("Done");
@@ -44,5 +44,12 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 Game.ImportSaveCode(MOD.save);
             }
         }
-    }
+    },
+    save:function(){
+        //use this to store persistent data associated with your mod
+        //note: as your mod gets more complex, you should consider storing a stringified JSON instead
+    },
+    load:function(str){
+        //do stuff with the string data you saved previously
+    },
 });
