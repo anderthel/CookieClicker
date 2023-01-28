@@ -35,8 +35,10 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 /*console.log(Game.WriteSave(1));*/
                 MOD.save = Game.WriteSave(1);
                 console.log(MOD.save);
+                console.log("Done");
                 Game.Notify('Done', '', [], 6000);
                 MOD.run = false;
+                break;
             } else {
                 console.log("Try " + MOD.tries + " - Not right type: " + Game.lumpCurrentType);
                 Game.ImportSaveCode(MOD.save);
