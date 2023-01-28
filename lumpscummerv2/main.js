@@ -21,19 +21,20 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             // await new Promise(resolve => setTimeout(resolve, 100));console.log("run") // wait 100ms
 
             if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
-                Game.ImportSaveCode(MOD.save);
                 console.log("Try " + MOD.tries + " - Lumps not increased");
-            } else if (MOD.old == MOD.goal && MOD.count + MOD.addition <= Game.lumps) { /*If old is same as goal check correct amount gotten*/
                 Game.ImportSaveCode(MOD.save);
+            } else if (MOD.old == MOD.goal && MOD.count + MOD.addition <= Game.lumps) { /*If old is same as goal check correct amount gotten*/
                 console.log("Try " + MOD.tries + " - Lumps not increased enough");
+                Game.ImportSaveCode(MOD.save);
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
                 Game.toSave = true;
-                Game.Notify('Done', '', [], 6000);
+                Game.CloseNotes();
                 console.log(Game.WriteSave(1));
+                Game.Notify('Done', '', [], 6000);
                 break;
             } else {
-                Game.ImportSaveCode(MOD.save);
                 console.log("Try " + MOD.tries + " - Not right type: " + Game.lumpCurrentType);
+                Game.ImportSaveCode(MOD.save);
             }
         }
     }
