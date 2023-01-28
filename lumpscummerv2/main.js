@@ -18,13 +18,13 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             // Click the lump (will harvest if ready)
             Game.clickLump();
             MOD.tries++;
-            // await new Promise(resolve => setTimeout(resolve, 100));console.log("run") // wait 100ms
+            await new Promise(resolve => setTimeout(resolve, 10));console.log("run") // wait 100ms
 
             if (Game.lumps == MOD.oldcount) { /*If count hasnt increased (botched)*/
-                /*console.log("Try " + MOD.tries + " - Lumps not increased");*/
+                console.log("Try " + MOD.tries + " - Lumps not increased");
                 Game.ImportSaveCode(MOD.save);
             } else if (MOD.oldtype == MOD.goal && Game.lumps - MOD.addition !== MOD.oldcount) { /*If old is same as goal check correct amount gotten*/
-                /*console.log("Try " + MOD.tries + " - Lumps not increased enough: " + Game.lumps);*/
+                console.log("Try " + MOD.tries + " - Lumps not increased enough: " + Game.lumps);
                 Game.ImportSaveCode(MOD.save);
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
                 Game.toSave = true;
@@ -33,7 +33,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
                 Game.Notify('Done', '', [], 6000);
                 break;
             } else {
-                /*console.log("Try " + MOD.tries + " - Not right type: " + Game.lumpCurrentType);*/
+                console.log("Try " + MOD.tries + " - Not right type: " + Game.lumpCurrentType);
                 Game.ImportSaveCode(MOD.save);
             }
         }
