@@ -15,7 +15,7 @@ Game.registerMod("lumpscummerv3", { //this string needs to match the ID provided
     recaller: function() {
         let MOD = this;
         MOD.waiting();
-    }
+    },
 
     waiting: function() {
         let MOD = this;
