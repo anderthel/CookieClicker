@@ -15,15 +15,14 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
         MOD.tries = 0;
 
         while (true) {
-
             // Click the lump (will harvest if ready)
-            setTimeout(function(){Game.clickLump();}, 100);
+            Game.clickLump();
             MOD.tries++;
 
             if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
                 Game.ImportSaveCode(MOD.save);
                 console.log("Try " + MOD.tries + " - Lumps not increased");
-            } else if (MOD.old == MOD.goal && Game.lumps - MOD.addition != MOD.count) { /*If old is same as goal check correct amount gotten*/
+            } else if (MOD.old == MOD.goal && Game.count + MOD.addition <= Game.lumps) { /*If old is same as goal check correct amount gotten*/
                 Game.ImportSaveCode(MOD.save);
                 console.log("Try " + MOD.tries + " - Lumps not increased enough");
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
