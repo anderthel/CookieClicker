@@ -23,7 +23,7 @@ Game.registerMod("lumpscummerv2", { //this string needs to match the ID provided
             if (Game.lumps == MOD.count) { /*If count hasnt increased (botched)*/
                 console.log("Try " + MOD.tries + " - Lumps not increased");
                 Game.ImportSaveCode(MOD.save);
-            } else if (MOD.old == MOD.goal && MOD.count + MOD.addition <= Game.lumps) { /*If old is same as goal check correct amount gotten*/
+            } else if (MOD.old == MOD.goal && Game.lumps - MOD.count >= MOD.addition) { /*If old is same as goal check correct amount gotten*/
                 console.log("Try " + MOD.tries + " - Lumps not increased enough");
                 Game.ImportSaveCode(MOD.save);
             } else if (Game.lumpCurrentType == MOD.goal) { /*Check new lump type*/
