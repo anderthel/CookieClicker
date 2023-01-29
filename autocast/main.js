@@ -11,7 +11,7 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
         MOD.bufftoggle = true;
 
         // Button
-        l("grimoireContent").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="autocastbutton">Cast: Off</a>');
+        l("grimoireContent").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="autocastbutton">Cast: On</a>');
 
         // Button events
         AddEvent(l('autocastbutton'), 'click', function() {
@@ -20,7 +20,7 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
                 Game.registerHook("draw", autocast); /*Auto Cast*/
             } else {
                 l('autocastbutton').innerText = "Cast: Off";
-                Game.removeHook('draw id', autocast);
+                Game.removeHook('draw', autocast);
             }
         })
 
@@ -48,7 +48,7 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
             }
         }
 
-        // Game.registerHook("draw", autocast); /*Auto Cast*/
+        Game.registerHook("draw", autocast); /*Auto Cast*/
         Game.Notify("Auto Cast Loaded", '', [], 5);
     },
     save: function() {
