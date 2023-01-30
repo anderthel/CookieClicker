@@ -5,12 +5,12 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
         let MOD = this;
 
         MOD.modeName = {
-                0: 'Stable',
-                1: 'Slow Rise',
-                2: 'Slow Fall',
-                3: 'Fast Rise',
-                4: 'Fast Fall',
-                5: 'Chaotic'
+                0: ['Stable', "128,128,128"],
+                1: ['Slow Rise', "44,128,255"],
+                2: ['Slow Fall', "128,30,128"],
+                3: ['Fast Rise', "44,128,255"],
+                4: ['Fast Fall', "128,30,128"],
+                5: ['Chaotic', "255, 0, 0"]
             };
         // Button
         l("bankHeader").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="stockmodebutton">Mode: Off</a>');
@@ -24,7 +24,7 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
                         if (Game.ObjectsById[5].muted == 0) {
                             Game.ObjectsById[5].minigame.goodsById.forEach(function(stock) {
                                 if (stock.hidden == false) {
-                                    MOD.stocks += stock.symbol + ": " + loc(MOD.modeName[stock.mode]) + "<br>";
+                                    MOD.stocks += '<h3 style="background-color:rgb(' + loc(MOD.modeName[stock.mode])[1] + ');">' + stock.symbol + ": " + loc(MOD.modeName[stock.mode])[0] + "</h3><br>";
                                 }
                             });
                             if (MOD.stocks != "") {
