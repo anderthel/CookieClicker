@@ -32,7 +32,7 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
                     for (key in Game.buffs) { /*count buffs*/
                         MOD.buffcount++
                     };
-                    if (MOD.buffcount >= 1) { /*if at least 1 buff then cast*/
+                    if (MOD.buffcount >= 2) { /*if at least 1 buff then cast*/
                         MOD.wiz.castSpell(MOD.wiz.spells[MOD.spell]);
                     }
                 } else {
