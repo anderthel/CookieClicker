@@ -35,6 +35,9 @@
 ## Auto Click
 [link](https://jn8416.github.io/CookieClicker/autoclick/main.js)
 
+## Garden Save
+[link](https://jn8416.github.io/CookieClicker/gardensave/main.js)
+
 
 # Install:
 ## Steam:
