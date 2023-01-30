@@ -32,11 +32,11 @@ Game.registerMod("gardensave", { //this string needs to match the ID provided in
                 MOD.tries++; /*count*/
 
                 if (MOD.tries <= 500) {
+                    console.log("Try:" + String(MOD.tries).padStart(5, ' '))
                     MOD.farm.plot.forEach(function(row) {
                         row.forEach(function(plot) {
                             if (MOD.locked.indexOf(plot) == -1) {
                                 Game.ImportSaveCode(MOD.savescum);
-                                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + ": Reloading")
                             } else {
                                 Game.CloseNotes();
                                 Game.Notify('Done', '', [], 1);
