@@ -36,6 +36,7 @@ Game.registerMod("gardensave", { //this string needs to match the ID provided in
                         row.forEach(function(plot) {
                             if (MOD.locked.indexOf(plot) == -1) {
                                 Game.ImportSaveCode(MOD.savescum);
+                                console.log("Try:" + String(MOD.tries).padStart(5, ' ') + ": Reloading")
                             } else {
                                 Game.CloseNotes();
                                 Game.Notify('Done', '', [], 1);
@@ -50,7 +51,6 @@ Game.registerMod("gardensave", { //this string needs to match the ID provided in
             }
         }
 
-        Game.registerHook("draw", autocast); /*Auto Cast*/
         Game.Notify("Garden Save Loaded", '', [], 5);
     }
 });
