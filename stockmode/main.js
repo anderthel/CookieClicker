@@ -24,7 +24,7 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
                         if (Game.ObjectsById[5].muted == 0) {
                             Game.ObjectsById[5].minigame.goodsById.forEach(function(stock) {
                                 if (stock.hidden == false) {
-                                    MOD.stocks += '<h3 style="background-color:rgb(' + loc(MOD.modeName[stock.mode])[1] + '),color=white;">' + stock.symbol + ": " + loc(MOD.modeName[stock.mode])[0] + "</h3><br>";
+                                    MOD.stocks += '<h3 style="background-color:rgb(' + loc(MOD.modeName[stock.mode])[1] + ');color=white;">' + stock.symbol + ": " + loc(MOD.modeName[stock.mode])[0] + "</h3><br>";
                                 }
                             });
                             if (MOD.stocks != "") {
