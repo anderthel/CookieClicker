@@ -31,7 +31,7 @@ Game.registerMod("gardensave", { //this string needs to match the ID provided in
             while (MOD.run) {
                 MOD.tries++; /*count*/
 
-                if (MOD.tries <= 500) {
+                if (MOD.tries <= 50) {
                     console.log("Try:" + String(MOD.tries).padStart(5, ' '))
                     MOD.farm.plot.forEach(function(row) {
                         row.forEach(function(plot) {
