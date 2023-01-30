@@ -13,7 +13,7 @@ Game.registerMod("gardensave", { //this string needs to match the ID provided in
         })
 
         function savescum() {
-            MOD.savescum = Game.WriteSave(1);
+            MOD.savescum = Game.mods["savescum"].savescum;
             MOD.farm = Game.ObjectsById[2].minigame;
             MOD.locked = [];
             MOD.tries = 0;
