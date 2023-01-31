@@ -14,9 +14,11 @@ Game.registerMod("sellall", { //this string needs to match the ID provided in yo
         AddEvent(l('sellall'), 'click', function() {
                 Game.ObjectsById.forEach(function(building) {
                     if (MOD.keepfree == true) {
-                        building.sell(building.amount - building.free);
+                        if (building.amount - building.free >= 1) {
+                            building.sell(building.amount - building.free);
+                        }
                     } else {
-                        building.sell(99999);
+                        building.sell(999999);
                     }
                 })
             })
