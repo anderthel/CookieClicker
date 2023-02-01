@@ -7,7 +7,7 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
         MOD.modeName = {
                 0: ['Stable', "128,128,128"],
                 1: ['Slow Rise', "0,153,0"],
-                2: ['Slow Fall', "128,30,128"],
+                2: ['Slow Fall', "128,50,128"],
                 3: ['Fast Rise', "0,200,0"],
                 4: ['Fast Fall', "128,10,128"],
                 5: ['Chaotic', "255, 0, 0"]
@@ -28,9 +28,7 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
                                 }
                             });
                             if (MOD.stocks != "") {
-                                console.log(MOD.stocks);
-                                MOD.stocks = MOD.stocks.replace("/<br>$/gm", "");
-                                console.log(MOD.stocks);
+                                MOD.stocks = MOD.stocks.replace(/<br>$/gm, "");
                                 Game.Notify(MOD.stocks, '', [], 5);
                             }
                         }
