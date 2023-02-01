@@ -28,7 +28,9 @@ Game.registerMod("stockmode", { //this string needs to match the ID provided in 
                                 }
                             });
                             if (MOD.stocks != "") {
+                                console.log(MOD.stocks);
                                 MOD.stocks = MOD.stocks.replace("/<br>$/gm", "");
+                                console.log(MOD.stocks);
                                 Game.Notify(MOD.stocks, '', [], 5);
                             }
                         }
