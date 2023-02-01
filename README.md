@@ -8,6 +8,9 @@
 ## Auto Fortune
 [link](https://jn8416.github.io/CookieClicker/autofortune/main.js)
 
+## Auto Pledge
+[link](https://jn8416.github.io/CookieClicker/autopledge/main.js)
+
 ## Auto Shimmers
 [link](https://jn8416.github.io/CookieClicker/autoshimmers/main.js)
 
