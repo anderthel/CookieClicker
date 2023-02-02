@@ -23,7 +23,7 @@
                 var farm = Game.ObjectsById[2].minigame;
                 var locked = [];
                 var run = true;
-                var complete = true;
+                var complete = false;
                 // MOD.farm.nextStep = farm tick
 
                 // Get list of locked plants
