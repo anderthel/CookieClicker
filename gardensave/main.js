@@ -12,48 +12,56 @@
                 savescum();
             })
 
+            // Sleep function
             function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
             }
 
+            // main function called on button press
             async function savescum() {
                 MOD.savescum = Game.mods["savescum"].savescum;
-                MOD.farm = Game.ObjectsById[2].minigame;
-                MOD.locked = [];
-                MOD.tries = 0;
-                MOD.run = true;
+                var farm = Game.ObjectsById[2].minigame;
+                var locked = [];
+                var run = true;
+                var complete = true;
                 // MOD.farm.nextStep = farm tick
 
                 // Get list of locked plants
-                MOD.farm.plantsById.forEach(function(plant) {
+                for (const plant in farm.plantsById) {
                     if (plant.unlocked == 0) {
-                        MOD.locked.push(plant.id);
+                        locked.push(plant.id + 1);      /*add one to id since in plot they are incremented by one for some reason*/
                     }
-                });
+                }
+
 
                 // For each plot of farm check if a new plant is there
-                while (MOD.run) {
-                    await sleep(1000);      /*wait 500ms before processing - convert to less arbitary number*/
-                    MOD.tries++; /*count*/
-                    if (MOD.tries <= 50) {
-                        console.log("Try:" + String(MOD.tries).padStart(5, ' '))
-                        MOD.farm.plot.forEach(function(row) {
-                            row.forEach(function(plot) {
-                                if (MOD.locked.indexOf(plot) != -1) {
-                                    Game.CloseNotes();
-                                    Game.Notify('Done', '', [], 1);
-                                    MOD.run = false;
-                                }
-                            });
-                        });
-                        
-                        if (MOD.run) {
-                            Game.ImportSaveCode(MOD.savescum);
+                loop:                                                   /*label to allow break to exist whole loop*/
+                for (var tries = 1; tries >= 50; tries++) {
+                    // wait 1000ms before processing - convert to less arbitary number
+                    console.log("Try:" + String(tries).padStart(3, ' '))
+                    await sleep(1000);
+
+                    for (const row in farm.plot) {                      /*for row*/
+                        for (const plot in row) {                       /*for col*/
+                            if (locked.indexOf(plot[0]) != -1) {        /*if plant id is found in locked list*/
+                                run = false;
+                                complete = true;
+                                break loop;
+                            }
                         }
-                    } else {
-                        MOD.run = false;
-                        Game.Notify('Failed', '', [], 10);
                     }
+                    
+                    if (run) {
+                        Game.CloseNotes();
+                        Game.ImportSaveCode(MOD.savescum);
+                    }
+                }
+
+                // At completion of for loop
+                if (complete) {
+                    Game.Notify('Done', '', [], 10);
+                } else {
+                    Game.Notify('Failed', '', [], 10);
                 }
             }
 
