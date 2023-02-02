@@ -5,7 +5,7 @@
             let MOD = this;
 
             // Button
-            l("gardenField").insertAdjacentHTML('beforeend', '<a style="font-size:11px;position:absolute;bottom:2px;right:2px;display:block;text-align:center;" class="smallFancyButton" id="growsavebutton">Garden<br>Scum</a>');
+            l("gardenField").insertAdjacentHTML('beforeend', '<a style="font-size:11px;position:absolute;bottom:2px;right:2px;display:block;text-align:center;" class="smallFancyButton" id="gardensavebutton">Garden<br>Scum</a>');
 
             // Button events
             AddEvent(l('gardensavebutton'), 'click', function() {
