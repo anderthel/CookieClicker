@@ -36,6 +36,7 @@
 
                 // For each plot of farm check if a new plant is there
                 loop:                                                   /*label to allow break to exist whole loop*/
+                console.log(locked);
                 for (var tries = 1; tries >= 50; tries++) {
                     // wait 1000ms before processing - convert to less arbitary number
                     console.log("Try:" + String(tries).padStart(3, ' '))
@@ -46,6 +47,7 @@
                             if (locked.indexOf(plot[0]) != -1) {        /*if plant id is found in locked list*/
                                 run = false;
                                 complete = true;
+                                console.log(plot);
                                 break loop;
                             }
                         }
