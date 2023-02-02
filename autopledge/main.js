@@ -5,8 +5,10 @@ Game.registerMod("autopledge", { //this string needs to match the ID provided in
         let MOD = this;
 
         function autopledge() {
-            if (Game.pledgeT == 0) {
-                Game.UpgradesById[74].click();
+            if (Game.UpgradesByPool["toggle"][0].unlocked == 1) {           /*if unlocked*/
+                if (Game.UpgradesByPool["toggle"][0].bought == 0) {         /*if not bought*/
+                    Game.UpgradesByPool["toggle"][0].buy();
+                }
             }
         }
         
