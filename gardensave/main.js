@@ -23,6 +23,7 @@
                 var farm = Game.ObjectsById[2].minigame;
                 var locked = [];
                 var complete = false;
+                MOD.waittime = 1000;
                 // MOD.farm.nextStep = farm tick
 
                 // Get list of locked plants
@@ -33,13 +34,13 @@
                 }
 
 
+                console.log(locked);
                 // For each plot of farm check if a new plant is there
                 loop:                                                   /*label to allow break to exist whole loop*/
-                console.log(locked);
                 for (var tries = 1; tries >= 50; tries++) {
                     // wait 1000ms before processing - convert to less arbitary number
                     console.log("Try:" + String(tries).padStart(3, ' '))
-                    await sleep(1000);
+                    await sleep(MOD.waittime);
 
                     for (const row in farm.plot) {                      /*for row*/
                         for (const plot in row) {                       /*for col*/
