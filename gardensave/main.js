@@ -27,7 +27,7 @@
                 // MOD.farm.nextStep = farm tick
 
                 // Get list of locked plants
-                for (const plant in farm.plantsById) {
+                for (const plant of farm.plantsById) {
                     if (plant.unlocked == 0) {
                         locked.push(plant.id + 1);      /*add one to id since in plot they are incremented by one for some reason*/
                     }
@@ -42,8 +42,8 @@
                     console.log("Try:" + String(tries).padStart(3, ' '))
                     await sleep(MOD.waittime);
 
-                    for (const row in farm.plot) {                      /*for row*/
-                        for (const plot in row) {                       /*for col*/
+                    for (const row of farm.plot) {                      /*for row*/
+                        for (const plot of row) {                       /*for col*/
                             if (locked.indexOf(plot[0]) != -1) {        /*if plant id is found in locked list*/
                                 complete = true;
                                 console.log(plot);
