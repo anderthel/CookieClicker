@@ -12,6 +12,10 @@ Game.registerMod("gardensave", { //this string needs to match the ID provided in
             savescum();
         })
 
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
         function savescum() {
             MOD.savescum = Game.mods["savescum"].savescum;
             MOD.farm = Game.ObjectsById[2].minigame;
@@ -29,6 +33,7 @@ Game.registerMod("gardensave", { //this string needs to match the ID provided in
 
             // For each plot of farm check if a new plant is there
             while (MOD.run) {
+                await sleep(1000);      /*wait 1000ms before processing - convert to less arbitary number*/
                 MOD.tries++; /*count*/
 
                 if (MOD.tries <= 50) {
