@@ -9,6 +9,9 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
 
         // With buffs only
         MOD.bufftoggle = true;
+        
+        // Number of buffs before casting
+        MOD.bufftogglecount = 2;
 
         // Button
         l("grimoireContent").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="autocastbutton">Cast: On</a>');
@@ -32,7 +35,7 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
                     for (key in Game.buffs) { /*count buffs*/
                         MOD.buffcount++
                     };
-                    if (MOD.buffcount >= 2) { /*if at least 1 buff then cast*/
+                    if (MOD.buffcount >= MOD.bufftogglecount) { /*if at least 1 buff then cast*/
                         MOD.wiz.castSpell(MOD.wiz.spells[MOD.spell]);
                     }
                 } else {
