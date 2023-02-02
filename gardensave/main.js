@@ -37,7 +37,7 @@
                 console.log(locked);
                 // For each plot of farm check if a new plant is there
                 loop:                                                   /*label to allow break to exist whole loop*/
-                for (var tries = 1; tries >= 50; tries++) {
+                for (var tries = 1; tries <= 50; tries++) {
                     // wait 1000ms before processing - convert to less arbitary number
                     console.log("Try:" + String(tries).padStart(3, ' '))
                     await sleep(MOD.waittime);
