@@ -11,7 +11,7 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
         MOD.bufftoggle = true;
 
         // Number of buffs before casting
-        MOD.bufftogglecount = 2;
+        MOD.bufftogglecount = 1;
 
         // Button
         l("grimoireContent").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="autocastbutton">Cast: On</a>');
@@ -36,8 +36,8 @@ Game.registerMod("autocast", { //this string needs to match the ID provided in y
                         MOD.buffcount++
                     };
 
-                    if (Game.buffs["Sugar blessing"]) { /*Add one if "Sugar blessing" is in buffs*/
-                        MOD.buffcount++
+                    if (Game.buffs["Sugar blessing"]) { /*minus one if "Sugar blessing" is in buffs*/
+                        MOD.buffcount--
                     }
 
                     if (MOD.buffcount >= MOD.bufftogglecount) { /*if at least 1 buff then cast*/
