@@ -33,16 +33,13 @@
 
                 // For each plot of farm check if a new plant is there
                 while (MOD.run) {
-                    await sleep(1000);      /*wait 1000ms before processing - convert to less arbitary number*/
+                    await sleep(500);      /*wait 500ms before processing - convert to less arbitary number*/
                     MOD.tries++; /*count*/
-
                     if (MOD.tries <= 50) {
                         console.log("Try:" + String(MOD.tries).padStart(5, ' '))
                         MOD.farm.plot.forEach(function(row) {
                             row.forEach(function(plot) {
-                                if (MOD.locked.indexOf(plot) == -1) {
-                                    Game.ImportSaveCode(MOD.savescum);
-                                } else {
+                                if (MOD.locked.indexOf(plot) != -1) {
                                     Game.CloseNotes();
                                     Game.Notify('Done', '', [], 1);
                                     MOD.run = false;
