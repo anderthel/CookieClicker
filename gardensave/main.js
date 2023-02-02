@@ -5,7 +5,7 @@
             let MOD = this;
 
             // Button
-            l("gardenContent").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="gardensavebutton">Scum</a>');
+            l("gardenContent").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="gardensavebutton">Garden Scum</a>');
 
             // Button events
             AddEvent(l('gardensavebutton'), 'click', function() {
@@ -46,6 +46,10 @@
                                 }
                             });
                         });
+                        
+                        if (MOD.run) {
+                            Game.ImportSaveCode(MOD.savescum);
+                        }
                     } else {
                         MOD.run = false;
                         Game.Notify('Failed', '', [], 10);
