@@ -24,12 +24,13 @@
                 var locked = [];
                 var complete = false;
                 MOD.waittime = 1000;
+                MOD.maxtries = 50;
                 // MOD.farm.nextStep = farm tick
 
                 // Get list of locked plants
                 for (const plant of farm.plantsById) {
                     if (plant.unlocked == 0) {
-                        locked.push(plant.id + 1);      /*add one to id since in plot they are incremented by one for some reason*/
+                        locked.push(plant.id);      /*add one to id since in plot they are incremented by one for some reason*/
                     }
                 }
 
@@ -37,7 +38,7 @@
                 console.log(locked);
                 // For each plot of farm check if a new plant is there
                 loop:                                                   /*label to allow break to exist whole loop*/
-                for (var tries = 1; tries <= 50; tries++) {
+                for (var tries = 1; tries <= MOD.maxtries; tries++) {
                     // wait 1000ms before processing - convert to less arbitary number
                     console.log("Try:" + String(tries).padStart(3, ' '))
                     await sleep(MOD.waittime);
