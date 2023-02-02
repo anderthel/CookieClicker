@@ -22,7 +22,6 @@
                 MOD.savescum = Game.mods["savescum"].savescum;
                 var farm = Game.ObjectsById[2].minigame;
                 var locked = [];
-                var run = true;
                 var complete = false;
                 // MOD.farm.nextStep = farm tick
 
@@ -45,7 +44,6 @@
                     for (const row in farm.plot) {                      /*for row*/
                         for (const plot in row) {                       /*for col*/
                             if (locked.indexOf(plot[0]) != -1) {        /*if plant id is found in locked list*/
-                                run = false;
                                 complete = true;
                                 console.log(plot);
                                 break loop;
@@ -53,7 +51,7 @@
                         }
                     }
                     
-                    if (run) {
+                    if (!complete) {
                         Game.CloseNotes();
                         Game.ImportSaveCode(MOD.savescum);
                     }
