@@ -5,7 +5,7 @@
             let MOD = this;
 
             // Button
-            l("gardenContent").insertAdjacentHTML('beforeend', '<a style="font-size:12px;position:absolute;bottom:2px;right:2px;display:block;" class="smallFancyButton" id="gardensavebutton">Garden Scum</a>');
+            l("gardenField").insertAdjacentHTML('beforeend', '<a style="font-size:11px;position:absolute;bottom:2px;right:2px;display:block;text-align:center;" class="smallFancyButton" id="growsavebutton">Garden<br>Scum</a>');
 
             // Button events
             AddEvent(l('gardensavebutton'), 'click', function() {
@@ -33,7 +33,7 @@
 
                 // For each plot of farm check if a new plant is there
                 while (MOD.run) {
-                    await sleep(500);      /*wait 500ms before processing - convert to less arbitary number*/
+                    await sleep(1000);      /*wait 500ms before processing - convert to less arbitary number*/
                     MOD.tries++; /*count*/
                     if (MOD.tries <= 50) {
                         console.log("Try:" + String(MOD.tries).padStart(5, ' '))
